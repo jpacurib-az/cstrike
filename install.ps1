@@ -1,3 +1,6 @@
+# start
+Clear-Host
+
 # download cstrike zip
 $CstrikeZipUrl = "https://www.dropbox.com/s/h20i5kch17xlr44/cstrike.zip?dl=1"
 $ZipLocation = "C:\temp\cstrike.zip"
