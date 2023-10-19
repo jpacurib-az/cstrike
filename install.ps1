@@ -2,6 +2,7 @@
 Clear-Host
 
 # download cstrike zip
+Write-Host "Downloading Counter-Strike files" -ForegroundColor green
 $CstrikeZipUrl = "https://www.dropbox.com/s/h20i5kch17xlr44/cstrike.zip?dl=1"
 $ZipLocation = "C:\temp\cstrike.zip"
 if (Test-Path -Path $ZipLocation -PathType Leaf) {
@@ -16,7 +17,7 @@ $HLFolder = "C:\Sierra\Half-Life"
 $ExeFile = $HLFolder + "\hl.exe"
 
 # extract zip file
-Write-Host "Extracting" $ZipLocation -ForegroundColor green
+Write-Host "Extracting" -ForegroundColor green
 Expand-Archive -Path $ZipLocation -Destination $HLFolder -Force
 Write-Host "Done extracting to" $HLFolder -ForegroundColor green
 Start-Sleep -Seconds 1
@@ -48,5 +49,5 @@ if ($reply.ToUpper() -eq 'Y') {
   $CdKey = $HLFolder + "\cd-key.txt"
   notepad.exe $CdKey
 }
-Write-Host "Done!" -ForegroundColor green
+Write-Host "Success!" -ForegroundColor green
 Read-Host -Prompt "Press any key"
