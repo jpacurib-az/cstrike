@@ -17,7 +17,7 @@ $HLFolder = "C:\Sierra\Half-Life"
 $ExeFile = $HLFolder + "\hl.exe"
 
 # extract zip file
-Write-Host "Extracting" -ForegroundColor green
+Write-Host "Extracting files" -ForegroundColor green
 Expand-Archive -Path $ZipLocation -Destination $HLFolder -Force
 Write-Host "Done extracting to" $HLFolder -ForegroundColor green
 Start-Sleep -Seconds 1
@@ -50,4 +50,5 @@ if ($reply.ToUpper() -eq 'Y') {
   notepad.exe $CdKey
 }
 Write-Host "Success!" -ForegroundColor green
-Read-Host -Prompt "Press any key"
+Write-Host -NoNewLine "Press any key to continue..."
+$null = $Host.UI.RawUI.ReadKey("NoEcho, IncludeKeyDown")
