@@ -38,7 +38,7 @@ $Shortcut.Save()
 Start-Sleep -Seconds 1
 
 # updating regedit key(s)
-Write-Host "Updating registry key(s)" -ForegroundColor green
+Write-Host "Adding registry key(s)" -ForegroundColor green
 $CompatKey = "HKEY_CURRENT_USER\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers"
 reg add $CompatKey /v $ExeFile /d "~ DWM8And16BitMitigation DISABLEDXMAXIMIZEDWINDOWEDMODE HIGHDPIAWARE WINXPSP3" /f
 Start-Sleep -Seconds 1
