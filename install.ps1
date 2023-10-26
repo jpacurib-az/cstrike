@@ -1,14 +1,21 @@
 # start
 Clear-Host
 
+# create temp dir
+$TempDir = "C:\temp"
+New-Item -ItemType Directory -Force -Path $TempDir -ErrorAction SilentlyContinue
+
 # download cstrike zip
 Write-Host "Downloading Counter-Strike files" -ForegroundColor green
 $CstrikeZipUrl = "https://www.dropbox.com/s/h20i5kch17xlr44/cstrike.zip?dl=1"
-$ZipLocation = "C:\temp\cstrike.zip"
+$ZipLocation = $TempDir + "\cstrike.zip"
 if (Test-Path -Path $ZipLocation -PathType Leaf) {
   Remove-Item -Path $ZipLocation -Force
 }
 Invoke-WebRequest -Uri $CstrikeZipUrl -OutFile $ZipLocation
+# $WebClient = New-Object System.Net.WebClient
+# $WebClient.Downloadfile($CstrikeZipUrl, $ZipLocation)
+# $WebClient.Dispose()
 Write-Host "Downloaded to" $ZipLocation -ForegroundColor green
 Start-Sleep -Seconds 1
 
